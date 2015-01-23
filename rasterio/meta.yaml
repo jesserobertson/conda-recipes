@@ -1,71 +1,60 @@
 package:
   name: rasterio
-  version: !!str 0.17.1
+  version: "0.15.1"
 
 source:
-  fn: rasterio-0.17.1.tar.gz
-  url: https://pypi.python.org/packages/source/r/rasterio/rasterio-0.17.1.tar.gz
-  md5: 791066c468bb49cdc4397332cec515b6
+  git_tag: "0.15.1"
+  git_url: https://github.com/mapbox/rasterio.git
 #  patches:
    # List any patch files here
    # - fix.patch
 
 build:
-  preserve_egg_dir: True
-  entry_points:
+  number: 0
+  #preserve_egg_dir: True
+  #entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - rasterio = rasterio:main
+    # - pyshp = pyshp:main
     #
-    # Would create an entry point called rasterio that calls rasterio.main()
+    # Would create an entry point called pyshp that calls pyshp.main()
 
-    - rio=rasterio.rio.main:cli
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
   # number: 1
 
+
+  entry_points:
+    - rio = rasterio.rio.main:cli
+
 requirements:
   build:
+    - affine >=1.0
+    - cython >=0.20
+    - click
+    - enum34
+    - gdal
+    - numpy >=1.8
     - python
     - setuptools
-    - affine >=1.0
-    - cligj
-    - numpy >=1.7
-    - enum34
 
   run:
-    - python
-    - setuptools
     - affine >=1.0
-    - cligj
-    - numpy >=1.7
+    - click
     - enum34
+    - gdal
+    - numpy >=1.8
+    - python
 
 test:
-  # Python imports
   imports:
     - rasterio
-    - rasterio.rio
-
-  commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-    - rio --help
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
 
 about:
   home: https://github.com/mapbox/rasterio
-  license: BSD License
-  summary: 'Fast and direct raster I/O for use with Numpy and SciPy'
+  license: BSD
 
 # See
 # http://docs.continuum.io/conda/build.html for
