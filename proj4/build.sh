@@ -1,6 +1,5 @@
-#!/bin/sh
+#!/bin/bash
 
-./configure --prefix=$PREFIX
-
-make
+./configure --prefix=$PREFIX --without-jni
+make -j 12
 make install

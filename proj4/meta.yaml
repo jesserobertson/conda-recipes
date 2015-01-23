@@ -1,16 +1,25 @@
-package:
-  name: proj4
-  version: 4.8.0
-
+about: {home: 'http://trac.osgeo.org/proj/', license: MIT}
+build:
+  entry_points: []
+  features: []
+  number: 0
+  string: ''
+  track_features: []
+package: {name: proj4, version: 4.8.0}
+requirements:
+  build: []
+  conflicts: []
+  run: []
 source:
   fn: proj-4.8.0.tar.gz
+  git_branch: ''
+  git_tag: ''
+  md5: ''
+  patches: []
+  svn_rev: ''
   url: http://download.osgeo.org/proj/proj-4.8.0.tar.gz
-
-build:
-  number: 0
-
-about:
-  home: http://trac.osgeo.org/proj/
-  license: MIT
-
-# vim:set ts=8 sw=2 sts=2 tw=78 et:
+test:
+  commands: []
+  files: []
+  imports: []
+  requires: []
